@@ -16,6 +16,24 @@
 
 <!-- MAIN CARD -->
 <div class="manage-accounts-card">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <form asp-action="Index" method="get">
+                <div class="input-group search-bar">
+                    <input type="text" name="search" class="form-control"
+                           placeholder="Search accounts by email or name..."
+                           value="@ViewData["CurrentSearch"]" />
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <table class="table-modern">
         <thead>
             <tr>

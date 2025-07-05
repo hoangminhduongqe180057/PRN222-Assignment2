@@ -33,3 +33,4 @@ D:\CHUYÊN NGÀNH 7\PRN222\HoangMinhDuongRazorPages\MinhDuong.Service\obj\Debug
 D:\CHUYÊN NGÀNH 7\PRN222\HoangMinhDuongRazorPages\MinhDuong.Service\obj\Debug\net8.0\refint\MinhDuong.Service.dll
 D:\CHUYÊN NGÀNH 7\PRN222\HoangMinhDuongRazorPages\MinhDuong.Service\obj\Debug\net8.0\MinhDuong.Service.pdb
 D:\CHUYÊN NGÀNH 7\PRN222\HoangMinhDuongRazorPages\MinhDuong.Service\obj\Debug\net8.0\ref\MinhDuong.Service.dll
+D:\CHUYÊN NGÀNH 7\PRN222\HoangMinhDuongRazorPages\MinhDuong.Service\obj\Debug\net8.0\MinhDuong.Service.sourcelink.json

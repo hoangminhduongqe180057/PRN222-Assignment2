@@ -12,11 +12,13 @@ namespace MinhDuong.Service.Services
     {
         private readonly IAccountRepository _accountRepository;
         private readonly INewsArticleRepository _newsArticleRepository;
+        private readonly IdGenerator _idGenerator;
 
-        public AccountService(IAccountRepository accountRepository, INewsArticleRepository newsArticleRepository)
+        public AccountService(IAccountRepository accountRepository, INewsArticleRepository newsArticleRepository, IdGenerator idGenerator)
         {
             _accountRepository = accountRepository;
             _newsArticleRepository = newsArticleRepository;
+            _idGenerator = idGenerator;
         }
 
         public async Task<AccountResponse> GetByIdAsync(string id)
@@ -84,7 +86,7 @@ namespace MinhDuong.Service.Services
             }
 
             var lastId = await _accountRepository.GetLastIdAsync();
-            var newId = IdGenerator.Instance.GenerateId(IdPrefix.Account, lastId);
+            var newId = _idGenerator.GenerateId(IdPrefix.Account, lastId);
 
             var account = new Account
             {

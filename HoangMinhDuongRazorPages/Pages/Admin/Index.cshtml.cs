@@ -18,9 +18,18 @@ namespace HoangMinhDuongRazorPages.Pages.Admin
 
         public IEnumerable<AccountResponse> Accounts { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string search)
         {
             var accountsDto = await _accountService.GetAllAsync();
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                accountsDto = accountsDto.Where(a =>
+                    a.Email.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                    a.FullName.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+
             Accounts = accountsDto.Select(a => new AccountResponse
             {
                 Success = true,
