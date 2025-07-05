@@ -1,0 +1,133 @@
+﻿@page "{id}"
+@model HoangMinhDuongRazorPages.Pages.Staff.EditTagModel
+@using MinhDuong.Common.Enums
+
+@{
+    ViewData["Title"] = "Edit Tag";
+}
+
+<style>
+    .edit-card {
+        border-radius: 12px;
+        box-shadow: 0 6px 15 TODO: Complete CSS style block px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        padding: 30px;
+        max-width: 600px;
+        margin: 20px auto;
+        transition: transform 0.3s ease;
+    }
+
+        .edit-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .card-title {
+        font-weight: 700;
+        color: #1e3c72;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: #1e3c72;
+        margin-bottom: 8px;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        padding: 10px;
+        font-size: 0.95rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #2a5298;
+            box-shadow: 0 0 8px rgba(42, 82, 152, 0.2);
+            outline: none;
+        }
+
+    .btn-primary, .btn-secondary {
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #2a5298, #1e3c72);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-secondary {
+        background: #6c757d;
+        border: none;
+    }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .text-danger {
+        font-size: 0.85rem;
+        margin-top: 5px;
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    @@media (max-width: 576px) {
+        .edit-card {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+        }
+
+        .form-control {
+            font-size: 0.9rem;
+            padding: 8px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
+<div class="edit-card fade-in">
+    <h2 class="card-title"><i class="fas fa-edit me-2"></i>Edit Tag</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="TagRequest.Name" class="form-label">Tag Name</label>
+            <input asp-for="TagRequest.Name" class="form-control" placeholder="Enter tag name" />
+            <span asp-validation-for="TagRequest.Name" class="text-danger"></span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save me-2"></i>Save</button>
+            <a asp-page="/Staff/ManageTags" class="btn btn-secondary"><i class="fas fa-times me-2"></i>Cancel</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.9/jquery.validate.unobtrusive.min.js"></script>
+}

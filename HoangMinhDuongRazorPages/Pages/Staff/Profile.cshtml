@@ -1,0 +1,190 @@
+﻿@page
+@model HoangMinhDuongRazorPages.Pages.Staff.ProfileModel
+@using MinhDuong.Common.Enums
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<style>
+    .profile-card {
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        padding: 30px;
+        max-width: 600px;
+        margin: 20px auto;
+        transition: transform 0.3s ease;
+    }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .card-header {
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        border-radius: 12px 12px 0 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .card-title {
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: #1e3c72;
+        margin-bottom: 8px;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        padding: 10px;
+        font-size: 0.95rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #2a5298;
+            box-shadow: 0 0 8px rgba(42, 82, 152, 0.2);
+            outline: none;
+        }
+
+        .form-control[readonly] {
+            background-color: #f8f9fa;
+            cursor: not-allowed;
+        }
+
+    .btn-primary, .btn-secondary {
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #2a5298, #1e3c72);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-secondary {
+        background: #6c757d;
+        border: none;
+    }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .text-danger {
+        font-size: 0.85rem;
+        margin-top: 5px;
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .profile-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @@media (max-width: 576px) {
+        .profile-card {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+        }
+
+        .form-control {
+            font-size: 0.9rem;
+            padding: 8px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        .profile-icon {
+            width: 60px;
+            height: 60px;
+        }
+    }
+</style>
+
+<div class="profile-card fade-in">
+    <div class="card-header">
+        <div class="mb-3">
+            <div class="profile-icon">
+                <i class="fas fa-user fa-2x text-white"></i>
+            </div>
+        </div>
+        <h2 class="card-title"><i class="fas fa-user-edit me-2"></i>Profile Settings</h2>
+        <p class="mb-0 text-light">Manage your account information</p>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" asp-for="AccountEditRequest.Id" />
+            <div class="mb-3">
+                <label asp-for="AccountEditRequest.Email" class="form-label">Email Address</label>
+                <input asp-for="AccountEditRequest.Email" class="form-control" readonly />
+                <small class="form-text text-muted"><i class="fas fa-lock me-1"></i>Email cannot be changed</small>
+                <span asp-validation-for="AccountEditRequest.Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="AccountEditRequest.FullName" class="form-label">Full Name</label>
+                <input asp-for="AccountEditRequest.FullName" class="form-control" placeholder="Enter your full name" />
+                <span asp-validation-for="AccountEditRequest.FullName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="AccountEditRequest.Password" class="form-label">Password</label>
+                <input asp-for="AccountEditRequest.Password" type="password" class="form-control"
+                       placeholder="Leave blank to keep current password" />
+                <small class="form-text text-muted"><i class="fas fa-info-circle me-1"></i>Only enter a password if you want to change it</small>
+                <span asp-validation-for="AccountEditRequest.Password" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="AccountEditRequest.Role" class="form-label">Role</label>
+                <input type="text" class="form-control" value="@((Role)Model.AccountEditRequest.Role)" readonly />
+                <input type="hidden" asp-for="AccountEditRequest.Role" />
+                <small class="form-text text-muted"><i class="fas fa-lock me-1"></i>Role cannot be changed</small>
+                <span asp-validation-for="AccountEditRequest.Role" class="text-danger"></span>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save me-2"></i>Save</button>
+                <a asp-page="/Staff/Index" class="btn btn-secondary"><i class="fas fa-times me-2"></i>Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.9/jquery.validate.unobtrusive.min.js"></script>
+}

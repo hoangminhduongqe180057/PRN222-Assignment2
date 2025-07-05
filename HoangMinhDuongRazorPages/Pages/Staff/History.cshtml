@@ -1,0 +1,185 @@
+﻿@page
+@model HoangMinhDuongRazorPages.Pages.Staff.HistoryModel
+@using MinhDuong.Common.Enums
+@using MinhDuong.Service.Responses
+
+@{
+    ViewData["Title"] = "History";
+}
+
+<style>
+    .history-card {
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        padding: 25px;
+        transition: transform 0.3s ease;
+    }
+
+        .history-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .card-header {
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        border-radius: 12px 12px 0 0;
+        padding: 20px;
+    }
+
+    .card-title {
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 1.8rem;
+        margin: 0;
+    }
+
+    .table-modern {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 0.95rem;
+    }
+
+        .table-modern thead {
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .table-modern th, .table-modern td {
+            padding: 14px 20px;
+            border-bottom: 1px solid #e9ecef;
+            text-align: left;
+        }
+
+        .table-modern th {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .table-modern tbody tr {
+            transition: background-color 0.3s ease;
+        }
+
+            .table-modern tbody tr:hover {
+                background-color: rgba(30, 60, 114, 0.05);
+                cursor: pointer;
+            }
+
+    .btn-info {
+        background: linear-gradient(90deg, #17a2b8, #138496);
+        border: none;
+        border-radius: 6px;
+        font-weight: 500;
+        padding: 8px 14px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-info:hover {
+            background: linear-gradient(90deg, #138496, #17a2b8);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-info i {
+            margin-right: 6px;
+        }
+
+    .no-data {
+        padding: 40px 0;
+        border-radius: 8px;
+        background: #f8f9fa;
+    }
+
+    @@media (max-width: 768px) {
+        .history-card {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+        }
+
+        .table-modern th, .table-modern td {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        .btn-info {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
+<div class="history-card fade-in">
+    <div class="card-header">
+        <h2 class="card-title"><i class="fas fa-history me-2"></i>Article History</h2>
+        <p class="mb-0 text-light">Track all your published articles</p>
+    </div>
+    <div class="card-body">
+        @if (Model.NewsArticles != null && Model.NewsArticles.Any())
+        {
+            <div class="table-responsive">
+                <table class="table-modern">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Created Date</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th style="width: 150px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var article in Model.NewsArticles)
+                        {
+                            <tr>
+                                <td class="fw-semibold">@article.NewsArticle.Title</td>
+                                <td>@article.NewsArticle.CreatedDate.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <span class="badge bg-primary">@article.NewsArticle.CategoryName</span>
+                                </td>
+                                <td>
+                                    @{
+                                        var statusClass = article.NewsArticle.Status switch
+                                        {
+                                            Status.Active => "bg-success",
+                                            Status.Inactive => "bg-warning",
+                                            _ => "bg-secondary"
+                                        };
+                                    }
+                                    <span class="badge @statusClass">@article.NewsArticle.Status</span>
+                                </td>
+                                <td>
+                                    <a asp-page="/Staff/Details" asp-route-id="@article.NewsArticle.Id"
+                                       class="btn btn-info btn-sm" title="View Details">
+                                        <i class="fas fa-eye"></i>View
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="no-data text-center">
+                <i class="fas fa-history fa-3x text-muted mb-3"></i>
+                <h5 class="text-muted">No articles created yet</h5>
+                <p class="text-muted">Your article history will appear here once you start creating content</p>
+                <a asp-page="/Staff/CreateNews" class="btn btn-primary">
+                    <i class="fas fa-plus me-2"></i>Create Your First Article
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+}

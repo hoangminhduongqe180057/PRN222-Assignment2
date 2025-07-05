@@ -1,0 +1,278 @@
+﻿@page
+@model HoangMinhDuongRazorPages.Pages.News.IndexModel
+@using MinhDuong.Common.Enums
+@using MinhDuong.Service.Responses
+@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "News";
+}
+
+<style>
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        border-bottom: 3px solid #e9ecef;
+    }
+
+        .page-header h2 {
+            font-weight: 700;
+            color: #1e3c72;
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+    .news-card {
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        padding: 25px;
+        transition: transform 0.3s ease;
+    }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .table-modern {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 0.95rem;
+    }
+
+        .table-modern thead {
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .table-modern th, .table-modern td {
+            padding: 14px 20px;
+            border-bottom: 1px solid #e9ecef;
+            text-align: left;
+        }
+
+        .table-modern th {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .table-modern tbody tr {
+            transition: background-color 0.3s ease;
+        }
+
+            .table-modern tbody tr:hover {
+                background-color: rgba(30, 60, 114, 0.05);
+                cursor: pointer;
+            }
+
+    .search-bar .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border: 1px solid #ced4da;
+        padding: 10px;
+        font-size: 0.95rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .search-bar .form-control:focus {
+            border-color: #2a5298;
+            box-shadow: 0 0 8px rgba(42, 82, 152, 0.2);
+            outline: none;
+        }
+
+    .btn-primary, .btn-outline-secondary, .btn-outline-danger {
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #2a5298, #1e3c72);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-outline-secondary {
+        border-color: #6c757d;
+        color: #6c757d;
+    }
+
+        .btn-outline-secondary:hover {
+            background: #6c757d;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-outline-danger {
+        border-color: #dc3545;
+        color: #dc3545;
+    }
+
+        .btn-outline-danger:hover {
+            background: #dc3545;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-info {
+        background: linear-gradient(90deg, #17a2b8, #138496);
+        border: none;
+        border-radius: 6px;
+        font-weight: 500;
+        padding: 8px 14px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-info:hover {
+            background: linear-gradient(90deg, #138496, #17a2b8);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-info i {
+            margin-right: 6px;
+        }
+
+    .no-data {
+        padding: 40px 0;
+        border-radius: 8px;
+        background: #f8f9fa;
+        text-align: center;
+    }
+
+    @@media (max-width: 768px) {
+        .page-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .table-modern th, .table-modern td {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary, .btn-outline-secondary, .btn-outline-danger, .btn-info {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+
+        .search-bar .form-control {
+            font-size: 0.9rem;
+            padding: 8px;
+        }
+    }
+</style>
+
+<div class="page-header">
+    <h2><i class="fas fa-newspaper me-2"></i>News Articles</h2>
+</div>
+
+<div class="news-card fade-in">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <form method="get">
+                <div class="input-group search-bar">
+                    <input type="text" name="search" class="form-control" placeholder="Search news..." value="@ViewData["CurrentSearch"]" />
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                    <a asp-page="/News/Index" class="btn btn-outline-danger ms-2" onclick="this.form.reset(); return false;">Reset</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table-modern">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Headline</th>
+                    <th>News Source</th>
+                    <th>Created Date</th>
+                    <th>Modified Date</th>
+                    <th>Category</th>
+                    <th style="width: 150px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var article in Model.NewsArticles)
+                {
+                    <tr>
+                        <td class="fw-semibold">@article.NewsArticle.Title</td>
+                        <td>@(article.NewsArticle.Headline?.Length > 50 ? article.NewsArticle.Headline.Substring(0, 50) + "..." : article.NewsArticle.Headline)</td>
+                        <td>@article.NewsArticle.NewsSource</td>
+                        <td>@article.NewsArticle.CreatedDate.ToString("dd/MM/yyyy")</td>
+                        <td>@(article.NewsArticle.ModifiedDate?.ToString("dd/MM/yyyy") ?? "N/A")</td>
+                        <td>
+                            <span class="badge bg-primary">@article.NewsArticle.CategoryName</span>
+                        </td>
+                        <td>
+                            <a asp-page="/News/Details" asp-route-id="@article.NewsArticle.Id" class="btn btn-info btn-sm" title="View Details">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (!Model.NewsArticles.Any())
+    {
+        <div class="no-data">
+            <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
+            <h5 class="text-muted">No articles found</h5>
+            <p class="text-muted">Try adjusting your search or check back later</p>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.10/signalr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <script>
+        const currentUserRole = '@Model.CurrentUserRole';
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/newsHub")
+            .build();
+
+        connection.on("ReceiveNewsUpdate", (action, newsId, title, status) => {
+                if (currentUserRole === "Lecture" && status !== "Active") {
+                    return;
+                }
+                    Toastify({
+                        text: `News article ${title} has been ${action} has status is ${currentUserRole}`,
+                        duration: 4000,
+                        gravity: "top",
+                        position: "center",
+                        offset: {
+                            y: 70
+                        },
+                        backgroundColor: "linear-gradient(to right, #667eea, #764ba2)",
+                        stopOnFocus: true,
+                    }).showToast();
+           });
+
+        connection.start().catch(err => console.error(err));
+    </script>
+}

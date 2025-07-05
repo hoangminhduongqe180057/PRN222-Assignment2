@@ -1,0 +1,182 @@
+﻿@page
+@model HoangMinhDuongRazorPages.Pages.Staff.CreateNewsModel
+@using MinhDuong.Common.Enums
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Create News";
+}
+
+<style>
+    .create-card {
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        padding: 30px;
+        margin: 20px auto;
+        max-width: 900px;
+        transition: transform 0.3s ease;
+    }
+
+        .create-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .card-title {
+        font-weight: 700;
+        color: #1e3c72;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: #1e3c72;
+        margin-bottom: 8px;
+    }
+
+    .form-control, .form-select {
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        padding: 10px;
+        font-size: 0.95rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #2a5298;
+            box-shadow: 0 0 8px rgba(42, 82, 152, 0.2);
+            outline: none;
+        }
+
+    .btn-primary, .btn-secondary {
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #2a5298, #1e3c72);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-secondary {
+        background: #6c757d;
+        border: none;
+    }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .text-danger {
+        font-size: 0.85rem;
+        margin-top: 5px;
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .form-text {
+        font-size: 0.85rem;
+        color: #6c757d;
+    }
+
+    @@media (max-width: 576px) {
+        .create-card {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+        }
+
+        .form-control, .form-select {
+            font-size: 0.9rem;
+            padding: 8px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
+<div class="create-card fade-in">
+    <h2 class="card-title"><i class="fas fa-plus me-2"></i>Create New Article</h2>
+    <form method="post">
+        <input type="hidden" asp-for="NewsArticleRequest.AccountId" value="@Model.AccountId" />
+        <input type="hidden" asp-for="NewsArticleRequest.CreatedDate" value="@DateTime.Now" />
+        <div class="mb-3">
+            <label asp-for="NewsArticleRequest.Title" class="form-label">Title <span class="text-danger">*</span></label>
+            <input type="text" asp-for="NewsArticleRequest.Title" class="form-control" placeholder="Enter article title" />
+            <span asp-validation-for="NewsArticleRequest.Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="NewsArticleRequest.Headline" class="form-label">Headline</label>
+            <input type="text" asp-for="NewsArticleRequest.Headline" class="form-control" placeholder="Enter headline (optional)" />
+            <span asp-validation-for="NewsArticleRequest.Headline" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="NewsArticleRequest.Content" class="form-label">Content <span class="text-danger">*</span></label>
+            <textarea asp-for="NewsArticleRequest.Content" class="form-control" rows="8" placeholder="Write your article content here..."></textarea>
+            <span asp-validation-for="NewsArticleRequest.Content" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="NewsArticleRequest.NewsSource" class="form-label">News Source</label>
+            <input type="text" asp-for="NewsArticleRequest.NewsSource" class="form-control" placeholder="Enter news source (optional)" />
+            <span asp-validation-for="NewsArticleRequest.NewsSource" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="NewsArticleRequest.CategoryId" class="form-label">Category <span class="text-danger">*</span></label>
+                    <select asp-for="NewsArticleRequest.CategoryId" class="form-select" asp-items="@Model.Categories">
+                        <option value="">Select Category</option>
+                    </select>
+                    <span asp-validation-for="NewsArticleRequest.CategoryId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="NewsArticleRequest.Status" class="form-label">Status <span class="text-danger">*</span></label>
+                    <select asp-for="NewsArticleRequest.Status" class="form-select" asp-items="Html.GetEnumSelectList<Status>()">
+                        <option value="">Select Status</option>
+                    </select>
+                    <span asp-validation-for="NewsArticleRequest.Status" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label asp-for="NewsArticleRequest.TagIds" class="form-label">Tags</label>
+            <select asp-for="NewsArticleRequest.TagIds" class="form-select" multiple asp-items="@Model.Tags" style="min-height: 120px;">
+            </select>
+            <small class="form-text">Hold Ctrl to select multiple tags</small>
+            <span asp-validation-for="NewsArticleRequest.TagIds" class="text-danger"></span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-plus me-2"></i>Create</button>
+            <a asp-page="/Staff/ManageNews" class="btn btn-secondary"><i class="fas fa-times me-2"></i>Cancel</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <partial name="_ValidationScriptsPartial" />
+}

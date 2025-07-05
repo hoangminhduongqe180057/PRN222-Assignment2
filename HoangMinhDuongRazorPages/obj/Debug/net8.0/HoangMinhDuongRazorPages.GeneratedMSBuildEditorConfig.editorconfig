@@ -1,0 +1,149 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HoangMinhDuongRazorPages
+build_property.RootNamespace = HoangMinhDuongRazorPages
+build_property.ProjectDir = D:\CHUYÊN NGÀNH 7\PRN222\HoangMinhDuongRazorPages\HoangMinhDuongRazorPages\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\CHUYÊN NGÀNH 7\PRN222\HoangMinhDuongRazorPages\HoangMinhDuongRazorPages
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Account/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Account/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Admin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Admin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Admin/Report.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmVwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/News/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/News/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/CreateCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcQ3JlYXRlQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/CreateNews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcQ3JlYXRlTmV3cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/CreateTag.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcQ3JlYXRlVGFnLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/EditCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcRWRpdENhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/EditNews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcRWRpdE5ld3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/EditTag.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcRWRpdFRhZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/ManageNews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcTWFuYWdlTmV3cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/ManageTags.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcTWFuYWdlVGFncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Staff/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CHUYÊN NGÀNH 7/PRN222/HoangMinhDuongRazorPages/HoangMinhDuongRazorPages/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-zadz3u3ioa
